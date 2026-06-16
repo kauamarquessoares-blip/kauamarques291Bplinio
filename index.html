@@ -1,1 +1,54 @@
+class Moto:
+    def __init__(self, marca, modelo, cilindradas):
+        self.marca = marca
+        self.modelo = modelo
+        self.cilindradas = cilindradas
+        self.ligada = False
+        self.velocidade_atual = 0
 
+    def ligar(self):
+        if not self.ligada:
+            self.ligada = True
+            print(f"A {self.modelo} deu a partida. VRUM!")
+        else:
+            print("A moto já está ligada.")
+
+    def desligar(self):
+        if self.ligada:
+            if self.velocidade_atual == 0:
+                self.ligada = False
+                print(f"A {self.modelo} foi desligada.")
+            else:
+                print("Pare a moto completamente antes de desligar!")
+        else:
+            print("A moto já está desligada.")
+
+    def acelerar(self, incremento):
+        if self.ligada:
+            self.velocidade_atual += incremento
+            print(f"Você acelerou! Velocidade atual: {self.velocidade_atual} km/h")
+        else:
+            print("Não dá para acelerar com a moto desligada.")
+
+    def frear(self, decremento):
+        if self.ligada:
+            self.velocidade_atual -= decremento
+            if self.velocidade_atual < 0:
+                self.velocidade_atual = 0
+            print(f"Você freou. Velocidade atual: {self.velocidade_atual} km/h")
+        else:
+            print("A moto está desligada e parada.")
+
+# --- Testando o código ---
+
+# Criando o objeto da moto
+minha_moto = Moto("Honda", "CB 500F", 500)
+
+# Interagindo com a moto
+minha_moto.ligar()
+minha_moto.acelerar(40)
+minha_moto.acelerar(30)
+minha_moto.frear(20)
+minha_moto.desligar()  # Vai avisar que precisa parar primeiro
+minha_moto.frear(50)   # Parando totalmente
+minha_moto.desligar()
