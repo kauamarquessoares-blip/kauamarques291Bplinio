@@ -1,54 +1,92 @@
-class Moto:
-    def __init__(self, marca, modelo, cilindradas):
-        self.marca = marca
-        self.modelo = modelo
-        self.cilindradas = cilindradas
-        self.ligada = False
-        self.velocidade_atual = 0
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo das Motos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #ff4500;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0,1);
+        }
+        .categoria {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+        h2 {
+            color: #ff4500;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
 
-    def ligar(self):
-        if not self.ligada:
-            self.ligada = True
-            print(f"A {self.modelo} deu a partida. VRUM!")
-        else:
-            print("A moto já está ligada.")
+    <header>
+        <h1>Paixão por Duas Rodas</h1>
+        <p>Explore o universo das motocicletas</p>
+    </header>
 
-    def desligar(self):
-        if self.ligada:
-            if self.velocidade_atual == 0:
-                self.ligada = False
-                print(f"A {self.modelo} foi desligada.")
-            else:
-                print("Pare a moto completamente antes de desligar!")
-        else:
-            print("A moto já está desligada.")
+    <nav>
+        <a href="#esportivas">Esportivas</a>
+        <a href="#custom">Custom</a>
+        <a href="#trail">Trail / Adventure</a>
+    </nav>
 
-    def acelerar(self, incremento):
-        if self.ligada:
-            self.velocidade_atual += incremento
-            print(f"Você acelerou! Velocidade atual: {self.velocidade_atual} km/h")
-        else:
-            print("Não dá para acelerar com a moto desligada.")
+    <div class="container">
+        
+        <section id="esportivas" class="categoria">
+            <h2>Motos Esportivas</h2>
+            <p>Feitas para pistas e alta performance, as motos esportivas contam com carenagens aerodinâmicas, motores de alta rotação e uma posição de pilotagem agressiva, inclinada para a frente.</p>
+            <ul>
+                <li>Foco em velocidade e curvas</li>
+                <li>Motores multi-cilíndricos potentes</li>
+                <li>Exemplos: Yamaha R1, Kawasaki Ninja, Honda Fireblade</li>
+            </ul>
+        </section>
 
-    def frear(self, decremento):
-        if self.ligada:
-            self.velocidade_atual -= decremento
-            if self.velocidade_atual < 0:
-                self.velocidade_atual = 0
-            print(f"Você freou. Velocidade atual: {self.velocidade_atual} km/h")
-        else:
-            print("A moto está desligada e parada.")
-
-# --- Testando o código ---
-
-# Criando o objeto da moto
-minha_moto = Moto("Honda", "CB 500F", 500)
-
-# Interagindo com a moto
-minha_moto.ligar()
-minha_moto.acelerar(40)
-minha_moto.acelerar(30)
-minha_moto.frear(20)
-minha_moto.desligar()  # Vai avisar que precisa parar primeiro
-minha_moto.frear(50)   # Parando totalmente
-minha_moto.desligar()
+        <section id="custom" class="categoria">
+            <h2>Motos Custom</h2>
+            <p>Estilo clássico, posição de pilotagem confortável (com os pés para a frente) e muito cromado. São motos ideais para viagens longas em rodovias, valorizando o torque em baixas rotações e o visual marcante.</p>
+            <ul>
+                <li>Conforto em longas distâncias</li>
+                <li>Estilo tradicional e estradeiro</li>
+                <li>Exemplos: Harley-Davidson
